@@ -1,13 +1,4 @@
 'use strict';
-
-
-
-/**
- * PRELOAD
- * 
- * loading will be end after document is loaded
- */
-
 const preloader = document.querySelector("[data-preaload]");
 
 window.addEventListener("load", function () {
@@ -80,9 +71,7 @@ window.addEventListener("scroll", function () {
 
 
 
-/**
- * HERO SLIDER
- */
+/** HERO SLIDER */
 
 const heroSlider = document.querySelector("[data-hero-slider]");
 const heroSliderItems = document.querySelectorAll("[data-hero-slider-item]");
@@ -168,3 +157,26 @@ window.addEventListener("mousemove", function (event) {
   }
 
 });
+
+
+/** 
+ * SEND KORZINKA
+ */
+let  korzinka =  JSON.parse(localStorage.getItem(`korzinka`)) || []
+
+function sendKorzinka(cardIndex) {
+    const card = document.querySelector(`.grid-list  menu-card:nth-child(${cardIndex + 1})`);
+    korzinka.push(card)
+    localStorage.setItem(`korzinka`, JSON.stringify(korzinka))
+    console.log(korzinka)
+}
+/** 
+  * KORZINKA PAGE 
+*/
+
+function korzinkaPage() {
+    location.href =  `korzinka.html`
+    const korzinkaPage = document.querSelector(`.grid-list`)
+
+    korzinkaPage.innerHTML = cards.textContent
+}
